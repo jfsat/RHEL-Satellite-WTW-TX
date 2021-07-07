@@ -1,4 +1,4 @@
-- Hosts: localhost
+- Hosts: txd3-confluence
   become: True
   
   tasks:
