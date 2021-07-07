@@ -1,4 +1,4 @@
-- Hosts: txd3
+- hosts: txd3
   become: True
   
   tasks:
