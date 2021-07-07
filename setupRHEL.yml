@@ -1,4 +1,4 @@
-- Hosts: txd3-confluence
+- Hosts: txd3
   become: True
   
   tasks:
