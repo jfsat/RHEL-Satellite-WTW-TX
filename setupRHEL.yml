@@ -12,12 +12,4 @@
       
   - name: Execute bootstrap.py
     ansible.builtin.shell:
-      cmd: sudo ./bootstrap.py --login=jacbe \
-      --server ehtx-it-smst002p.int.dir.willis.com \
-      --location="EHTX - Richardson" \
-      --organization="NA-INDIVIDUAL-MARKETPLACE" \
-      --hostgroup="EHTX/prod/ccv_rh_7_server" \
-      --activationkey=ccv_rh_7_server_prod \
-      --download-method https \
-      --skip puppet \
-      --force
+      cmd: sudo ./bootstrap.py --login=jacbe --server ehtx-it-smst002p.int.dir.willis.com --location="EHTX - Richardson" --organization="NA-INDIVIDUAL-MARKETPLACE" --hostgroup="EHTX/prod/ccv_rh_7_server" --activationkey=ccv_rh_7_server_prod --download-method https --skip puppet --force
