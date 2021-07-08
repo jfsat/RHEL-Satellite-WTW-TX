@@ -1,5 +1,5 @@
 ---
-- name: Get a new server on Satellite and in the realm
+- name: Get a new server on Satellite
   hosts: txd3-confluence.extendhealth.com
   become: True
   
