@@ -9,6 +9,17 @@
       - releasever: "7Server"
         basearch: "x86_64"
     organization: "NA-INDIVIDUAL-MARKETPLACE"
+    server_url: "ehtx-it-smst002p.int.dir.willis.com"
+    
+  vars_prompt:
+  - name: ansible_user
+    prompt: "Enter ansible user which has sudo access"
+    private: no
+    
+  - name: ansible_sudo_pass
+    prompt: "Enter sudo password for user"
+    private: yes
+    
   tasks:
     - name: "Enable {{ repo }} repository"
       katello_repository_set:
