@@ -1,4 +1,6 @@
-- hosts: localhost
+- name: "Connect to Satellite without a shell script"
+  hosts: txd3-confluence.extendhealth.com
+  become: True
   vars:
     content_view: RHEL
     product: "Red Hat Enterprise Linux Server"
