@@ -22,7 +22,7 @@
     
   tasks:
     - name: "Enable {{ repo }} repository"
-      katello_repository_set:
+      theforeman.foreman.repository_set:
         name: "{{ repo }}"
         product: "{{ product }}"
         repositories: "{{ repo_variants }}"
@@ -30,13 +30,13 @@
         state: enabled
     
     - name: "Sync {{ repo }} repository"
-      katello_sync:
+      theforeman.foreman.repository_sync:
         repository: "{{ repo }}"
         product: "{{ product }}"
         organization: "{{ org }}"
     
     - name: "Create RHEL ContentView"
-      katello_content_view:
+      theforeman.foreman.content_view:
         name: "{{ content_view }}"
         repositories:
           - name: "{{ repo }}"
@@ -45,6 +45,6 @@
         state: present
     
     - name: "Publish RHEL content view"
-      katello_content_view_version:
+      theforeman.foreman.content_view_version:
         content_view: "{{ content_view }}"
         organization: "{{ org }}"
