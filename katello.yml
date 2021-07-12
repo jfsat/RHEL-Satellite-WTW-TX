@@ -28,12 +28,18 @@
         repositories: "{{ repo_variants }}"
         organization: "{{ org }}"
         state: enabled
+        password: {{ ansible_sudo_pass }}
+        server_url: {{ server_url }}
+        username: {{ ansible_user }}
     
     - name: "Sync {{ repo }} repository"
       theforeman.foreman.repository_sync:
         repository: "{{ repo }}"
         product: "{{ product }}"
         organization: "{{ org }}"
+        password: {{ ansible_sudo_pass }}
+        server_url: {{ server_url }}
+        username: {{ ansible_user }}
     
     - name: "Create RHEL ContentView"
       theforeman.foreman.content_view:
@@ -43,8 +49,14 @@
             product: "{{ product }}"
         organization: "{{ org }}"
         state: present
+        password: {{ ansible_sudo_pass }}
+        server_url: {{ server_url }}
+        username: {{ ansible_user }}
     
     - name: "Publish RHEL content view"
       theforeman.foreman.content_view_version:
         content_view: "{{ content_view }}"
         organization: "{{ org }}"
+        password: {{ ansible_sudo_pass }}
+        server_url: {{ server_url }}
+        username: {{ ansible_user }}
