@@ -8,7 +8,7 @@
     repo_variants:
       - releasever: "7Server"
         basearch: "x86_64"
-    organization: "NA-INDIVIDUAL-MARKETPLACE"
+    org: "NA-INDIVIDUAL-MARKETPLACE"
     server_url: "ehtx-it-smst002p.int.dir.willis.com"
     
   vars_prompt:
