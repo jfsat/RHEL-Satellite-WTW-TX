@@ -19,7 +19,6 @@
   - name: ansible_ssh_pass
     prompt: "Enter password for ansible user"
     private: yes
-    confirm: yes
     
   - name: ansible_sudo_pass
     prompt: "Enter sudo password for user"
