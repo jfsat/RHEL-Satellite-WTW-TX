@@ -1,0 +1,7 @@
+---
+- hosts: python_interpreter_test_default, python_interpreter_test_defined
+  gather_facts: yes
+  serial: 1
+  tasks:
+    - debug: var=ansible_python_interpreter
+    - debug: var=ansible_python_version
