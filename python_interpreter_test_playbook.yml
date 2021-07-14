@@ -1,5 +1,5 @@
 ---
-- hosts: python_interpreter_test_default, python_interpreter_test_defined
+- hosts: txd3-confluence, txd2-confluence
   gather_facts: yes
   serial: 1
   tasks:
