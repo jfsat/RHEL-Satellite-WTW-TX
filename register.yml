@@ -7,13 +7,13 @@
     
   
   vars_prompt:
-  - name: ansible_user
-    prompt: "Enter ansible user which has sudo access"
-    private: no
+    - name: ansible_user
+      prompt: "Enter ansible user which has sudo access"
+      private: no
     
-  - name: ansible_ssh_pass
-    prompt: "Enter password for ansible user"
-    private: yes
+    - name: ansible_ssh_pass
+      prompt: "Enter password for ansible user"
+      private: yes
   
   tasks:
     name: 'Register host using subscription_manager'
