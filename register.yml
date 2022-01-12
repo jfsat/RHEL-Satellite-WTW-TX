@@ -1,4 +1,3 @@
----
 - name: 'Create RedHat Subscription'
   hosts: txd3-confluence.extendhealth.com
   become: True
