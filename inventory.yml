@@ -1,5 +1,6 @@
+---
 dev:
   hosts:
-    txd1-confluence.extendhealth.com;
-    txd2-confluence.extendhealth.com;
-    txd3-confluence.extendhealth.com;
+    txd1-confluence.extendhealth.com:
+    txd2-confluence.extendhealth.com:
+    txd3-confluence.extendhealth.com:
