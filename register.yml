@@ -23,3 +23,4 @@
         username: "{{ ansible_user }}"
         server_hostname: 'ehtx-it-smst002p.int.dir.willis.com'
         org_id: 'NA-INDIVIDUAL-MARKETPLACE'
+        environment: 'preprod/ccv_rh_7_server'
