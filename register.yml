@@ -16,9 +16,9 @@
       private: yes
   
   tasks:
-    name: 'Register host using subscription_manager'
-    community.general.redhat_subscription:
-      auto_attach: 'true'
-      password: "{{ ansible_ssh_pass }}"
-      username: "{{ ansible_user }}"
-      server_hostname: 'ehtx-it-smst002p.int.dir.willis.com'
+    - name: 'Register host using subscription_manager'
+      community.general.redhat_subscription:
+        auto_attach: 'true'
+        password: "{{ ansible_ssh_pass }}"
+        username: "{{ ansible_user }}"
+        server_hostname: 'ehtx-it-smst002p.int.dir.willis.com'
