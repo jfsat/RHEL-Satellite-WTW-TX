@@ -1,0 +1,24 @@
+---
+- name: 'Create RedHat Subscription'
+  hosts: txd3-confluence.extendhealth.com
+  become: True
+  vars:
+    ansible_sudo_pass: "{{ ansible_ssh_pass }}"
+    
+  
+  vars_prompt:
+  - name: ansible_user
+    prompt: "Enter ansible user which has sudo access"
+    private: no
+    
+  - name: ansible_ssh_pass
+    prompt: "Enter password for ansible user"
+    private: yes
+  
+  tasks:
+    name: 'Register host using subscription_manager'
+      community.general.redhat_subscription:
+        auto_attach: 'true'
+        password: "{{ ansible_ssh_pass }}"
+        username: "{{ ansible_user }}"
+        server_hostname: 'ehtx-it-smst002p.int.dir.willis.com'
