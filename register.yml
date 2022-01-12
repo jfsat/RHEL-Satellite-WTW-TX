@@ -1,6 +1,6 @@
 ---
 - name: Create RedHat Subscription
-  hosts: txd3-confluence.extendhealth.com
+  hosts: dev
   become: True
   vars:
     ansible_sudo_pass: "{{ ansible_ssh_pass }}"
