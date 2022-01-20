@@ -1,0 +1,34 @@
+---
+- name: Create RedHat Subscription
+  hosts: dev
+  become: True
+  vars:
+    ansible_sudo_pass: "{{ ansible_ssh_pass }}"
+    
+  
+  vars_prompt:
+    - name: ansible_user
+      prompt: "Enter admin username for new server"
+      private: no
+    
+    - name: ansible_ssh_pass
+      prompt: "Enter password (for new server)"
+      private: yes
+
+    - name: ldap_user
+      prompt: "Enter Active Directory user with access to add objects"
+      private: no
+
+    - name: ldap_pass
+      prompt: "Enter AD user's password"
+      private: yes
+  
+  tasks:
+    - name: 'Register host using subscription_manager'
+      community.general.redhat_subscription:
+        auto_attach: 'true'
+        password: "{{ ldap_pass }}"
+        username: "{{ ldap_user }}"
+        server_hostname: 'ehtx-it-smst002p.int.dir.willis.com'
+        org_id: 'NA-INDIVIDUAL-MARKETPLACE'
+        environment: 'preprod/ccv_rh_7_server'
