@@ -35,11 +35,12 @@
     - name: Run Bootstrap.py
       command: |
         ./bootstrap.py --login={{ ldap_user }} \
+        --password={{ ldap_pass }} \
         --server ehtx-it-smst002p.int.dir.willis.com \
         --location"EHTX - Richardson" \
         --organization="NA-INDIVIDUAL-MARKETPLACE" \
         --hostgroup="EHTX/dev/ccv_rh_7_server" \
         --activationkey=ccv_rh_7_server_dev \
-        download-method https \
+        --download-method https \
         --skip puppet \
         --force
