@@ -1,0 +1,45 @@
+---
+- name: Gain CA certificate but fail subscription
+  hosts: txd1-deleteme.extendhealth.com
+  become: True
+  vars:
+    ansible_sudo_pass: "{{ ansible_ssh_pass }}"
+
+
+  vars_prompt:
+    - name: ansible_user
+      prompt: "Enter admin username for new server"
+      private: no
+
+    - name: ansible_ssh_pass
+      prompt: "Enter password (for new server)"
+      private: yes
+
+    - name: ldap_user
+      prompt: "Enter Satellite user with access to add objects"
+      private: no
+
+    - name: ldap_pass
+      prompt: "Enter Satellite user's password"
+      private: yes
+
+  tasks:
+    - name: Grab bootstrap.py
+      get_url:
+        url: http://ehtx-it-smst002p.int.dir.willis.com/pub/bootstrap.py
+        dest: /root/bootstrap.py
+
+    - name: Make bootstrap executable
+      file: dest=/root/bootstrap.py mode=a+x
+
+    - name: Run Bootstrap.py
+      command: |
+        ./bootstrap.py --login={{ ldap_user }} \
+        --server ehtx-it-smst002p.int.dir.willis.com \
+        --location"EHTX - Richardson" \
+        --organization="NA-INDIVIDUAL-MARKETPLACE" \
+        --hostgroup="EHTX/dev/ccv_rh_7_server" \
+        --activationkey=ccv_rh_7_server_dev \
+        download-method https \
+        --skip puppet \
+        --force
