@@ -1,16 +1,6 @@
 ---
-all:
+dev:
   hosts:
-    txdev:
-      txd1-confluence.extendhealth.com:
-      txd2-confluence.extendhealth.com:
-      txd3-confluence.extendhealth.com:
-      txd1-deleteme.extendhealth.com:
-    wjdev:
-      wjd1-jiralinux.extendhealth.com:
-    
-  children:
-    dev:
-      hosts:
-        txdev:
-        wjdev:
+    txd1-confluence.extendhealth.com:
+    txd1-deleteme.extendhealth.com:
+    wjd1-jiralinux.extendhealth.com:
