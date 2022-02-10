@@ -1,6 +1,6 @@
 ---
 - name: Create RedHat Subscription
-  hosts: txd1-deleteme.extendhealth.com
+  hosts: wjd1-jiralinux.extendhealth.com
   become: True
   vars:
     ansible_sudo_pass: "{{ ansible_ssh_pass }}"
