@@ -39,8 +39,8 @@
         username: "{{ ldap_user }}"
         server_hostname: 'ehtx-it-smst002p.int.dir.willis.com'
         org_id: 'NA-INDIVIDUAL-MARKETPLACE'
-        environment: 'preprod/ccv_rh_7_server'
-        rhsm_repo_ca_cert: '/etc/rhsm/ca/'
+        environment: 'preprod/ccv_rh_8_server'
+        #rhsm_repo_ca_cert: '/etc/rhsm/ca/'
 
     - name: 'Update through yum'
       yum:
