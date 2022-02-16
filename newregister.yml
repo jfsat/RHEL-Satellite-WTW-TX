@@ -27,6 +27,7 @@
     - name: 'Get CA Certificate'
       yum:
         name: 'http://ehtx-it-smst002p.int.dir.willis.com/pub/katello-ca-consumer-latest.noarch.rpm'
+        disable_gpg_check: true
         state: present
 
     - name: 'Make sure repos are clear'
