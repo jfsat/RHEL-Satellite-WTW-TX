@@ -29,6 +29,9 @@
         name: 'http://ehtx-it-smst002p.int.dir.willis.com/pub/katello-ca-consumer-latest.noarch.rpm'
         state: present
 
+    - name: 'Make sure repos are clear'
+      command: 'subscription-manager clean'
+
     - name: 'Register host using subscription_manager'
       community.general.redhat_subscription:
         auto_attach: 'true'
