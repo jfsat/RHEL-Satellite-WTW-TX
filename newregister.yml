@@ -50,6 +50,13 @@
       notify:
         - reboot
 
-  handlers:
     - name: reboot
-      command: /sbin/reboot
+      shell: sleep 2 && /sbin/shutdown -r now
+
+    - name: Wait for server come back
+      wait_for: >
+        host="{{ inventory_hostname }}"
+        port=22
+        delay=15
+        timeout=60
+      delegate_to: localhost
