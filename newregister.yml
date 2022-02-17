@@ -47,8 +47,6 @@
       yum:
         name: '*'
         state: latest
-      notify:
-        - reboot
 
     - name: reboot
       shell: sleep 2 && /sbin/shutdown -r now
