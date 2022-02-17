@@ -50,8 +50,6 @@
 
     - name: reboot
       shell: sleep 2 && /sbin/shutdown -r now
-
-    - name: Wait for server come back
       wait_for: >
         host="{{ inventory_hostname }}"
         port=22
