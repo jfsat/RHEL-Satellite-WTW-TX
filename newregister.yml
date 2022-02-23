@@ -49,10 +49,4 @@
         state: latest
 
     - name: reboot
-      shell: sleep 2 && /sbin/shutdown -r now
-      wait_for: >
-        host="{{ inventory_hostname }}"
-        port=22
-        delay=15
-        timeout=60
-      delegate_to: localhost
+      reboot:
