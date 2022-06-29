@@ -1,12 +1,16 @@
 ---
 - name: Create RedHat Subscription
-  hosts: txd1-deleteme.extendhealth.com
+  hosts: "{{ host }}"
   become: True
   vars:
     ansible_sudo_pass: "{{ ansible_ssh_pass }}"
     
   
   vars_prompt:
+    - name: host
+      prompt: "Which host needs to be added to Satellite? This host will need to be added to the inventory file previous to running this script. If you haven't done that yet, quit this (Ctrl + C) and add the host first."
+      private: no
+
     - name: ansible_user
       prompt: "Enter admin username for new server"
       private: no
@@ -22,6 +26,10 @@
     - name: ldap_pass
       prompt: "Enter AD user's password"
       private: yes
+
+    - name: host
+      prompt: "Enter the hostname of the server"
+      private: no
   
   tasks:
     - name: 'Get CA Certificate'
@@ -30,8 +38,8 @@
         disable_gpg_check: true
         state: present
 
-    - name: 'Make sure repos are clear'
-      command: 'subscription-manager clean'
+#    - name: 'Make sure repos are clear'
+#      command: 'subscription-manager clean'
 
     - name: 'Register host using subscription_manager'
       community.general.redhat_subscription:
